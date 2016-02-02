@@ -1,0 +1,28 @@
+
+<div class="row">
+
+<h2>Table 1</h2>
+<table class='table table-striped table-hovered table-bordered' ng-if='table1Loaded'>
+  <theader>
+    <tr>
+      <th>text</th>
+      <th>completed</th>      
+      <th class='hidden-xs'>when</th>
+      <th></th>
+    </tr>
+  </theader>
+  <tbody>
+    <tr ng-repeat='row in rows'>
+      <td><a href='#detail/{{row.id}}/false'>{{ifNotEmpty(row.text,'(no text)')}}</a></td>
+      <!-- ng-class how to invert ? -->
+      <td ng-class="{'text-danger': !row.completed, 'text-success': row.completed}"><span class="glyphicon" ng-class="{'glyphicon-remove': !row.completed,'glyphicon-ok': row.completed}" aria-hidden="true"></span> {{row.completed}}</td>      
+      <td class='hidden-xs'>{{row.when}}</td>
+      <td><button class="btn btn-default" ng-click='edit_clicked(row.id)'>Edit</button>
+      <button class="btn btn-default" ng-click='delete_clicked(row.id)'>Delete</button></td>
+    </tr>
+  </tbody>
+</table>
+
+<button class="btn btn-default" ng-click='new_clicked()'>New</button>
+
+<div class='loading'  ng-if='!table1Loaded'>... loading ...</div>

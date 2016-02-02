@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html ng-app="ngAppDemo">
+
+  <head>
+    <script data-require="angular.js@1.4.3" data-semver="1.4.3" src="https://code.angularjs.org/1.4.3/angular.js"></script>
+    <script data-require="jquery@2.1.3" data-semver="2.1.3" src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
+    <!-- Bootstrap core CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+    <script data-require="bootstrap@3.3.2" data-semver="3.3.2" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <script src="http://ajax.aspnetcdn.com/ajax/mobileservices/MobileServices.Web-1.2.5.min.js"></script>
+    <script src="baracuda.js"></script>
+    <script src="script.js"></script>
+  </head>
+
+  <body ng-controller="contr1">
+    <div class="container cl1">
+
+    <h1 ng-click="a=20">ng-repeat demo</h1>
+    
+    <div class="row">
+      <div class="col-md-2">
+       <input type="button" value="Button1" ng-click="button1()" />
+      </div>
+      <div class="col-md-2">
+       <input type="button" value="Button2" ng-click="button2()" />
+      </div>
+      <div class="col-md-2">
+       <input type="button" value="Button3 (AMS table insert" ng-click="button3()" />
+      </div>
+      <div class="col-md-2">
+       <input type="button" value="Button4 (AMS table read)" ng-click="button4()" />
+      </div>
+      <div class="col-md-4">
+         Use one of these 4 four buttons !
+      </div>
+    </div>
+    <div class="row">&nbsp;text1: &nbsp;{{text1}}</div>
+    <div class="row" ng-repeat="a in xItems1">
+      
+      <div class="col-xs-2" ng-class-even="'gray_style'" >
+      index:&nbsp;{{$index}}
+      </div>
+      
+      <div class="col-xs-2"  ng-class-odd="'gray_style'" >
+      even:&nbsp;{{$even}}
+      </div>
+      
+      <div class="col-xs-1">
+      {{a.a}}
+      </div>
+      
+      <div class="col-xs-1">
+      {{a.b}}
+      </div>
+      
+      <div class="col-xs-1">
+      </div>
+      
+    </div>
+    
+    <div class="row">&nbsp;&nbsp;</div>
+    <div class="row" ng-repeat="(k,v) in xItems2">
+        <div class="col-xs-1">
+      {{k}}
+      </div>
+      <div class="col-xs-1">
+      {{v}}
+      </div>
+    </div>
+      
+    </div>
+
+  </body>
+
+</html>

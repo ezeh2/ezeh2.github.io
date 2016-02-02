@@ -1,0 +1,34 @@
+
+
+<h2>Table 1</h2>
+
+<div class="row" ng-repeat='(key,value) in row'  ng-if='!edit'>
+<div class='col-md-2'>{{key}}</div>
+<div class='col-md-4'>{{value}}</div>
+</div>
+
+<div class="row" ng-if='edit'>
+<div class='col-md-2'>id</div>
+<div class='col-md-4'>{{row.id}}</div>
+</div>
+
+<div class="row" ng-if='edit'>
+<div class='col-md-2'>text</div>
+<input class='col-md-4' type="text" ng-model='row.text'>
+</div>
+
+<div class="row" ng-if='edit'>
+<div class='col-md-2'>completed</div>
+<input class='col-md-4' type="checkbox" ng-model='row.completed'>
+</div>
+
+<div class="row" ng-if='edit'>
+<div class='col-md-2'>when</div>
+<input class='col-md-4' type="datetime-local" ng-model='row.when'>
+</div>
+
+<button ng-click='save()' ng-if='edit'>save</button>
+
+<div class='loading'  ng-if='!table1Loaded'>... loading ...</div>
+
+

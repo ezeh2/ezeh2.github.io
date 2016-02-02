@@ -1,0 +1,1 @@
+Angular module, controller and scope
