@@ -1,7 +1,9 @@
 
 
-function add_distance_props(in_array) {
+define(['jquery'],function($) {
 	
+	return function(in_array) {
+
 	var ret = [];
 	var distance_from_beginning = 0;
 	$.each(in_array, function (i, o) {
@@ -23,4 +25,6 @@ function add_distance_props(in_array) {
 	});
 
 	return ret;	
-}
+	}
+
+});
