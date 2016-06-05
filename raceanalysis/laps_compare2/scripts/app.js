@@ -6,9 +6,4 @@ require.config({
     }
   });
 
-/*
-require(['../charts/core/core','../charts/chart'], function(core, chart) {
-
-});
-*/
 require(['main']);
