@@ -1,7 +1,7 @@
 
 
 
-define(['./lap1','./lap1','./add_distance_columns','jquery','get_closest_point'],function(lap1,lap2,add_distance_columns,$, get_closest_point) {
+define(['./lap1','./lap2','./add_distance_columns','jquery','get_closest_point'],function(lap1,lap2,add_distance_columns,$, get_closest_point) {
 
 console.log('hallo');
 
