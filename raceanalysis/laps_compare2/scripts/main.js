@@ -36,7 +36,7 @@ var chartConfig = {
                 type: 'linear',
                 position: 'bottom'
             }]
-        }    	
+        }
     }
 };
 
@@ -44,12 +44,21 @@ chartConfig.data = { datasets: [] };
 
 chartConfig.data.datasets.push({
             label: 'Scatter Dataset 1',
-            data: d1
+            data: d1,
+            fill:false,
+            borderColor:'#00FF00',
+            borderWidth:1,
+            radius:0,
+            tension:0
         });
 
 chartConfig.data.datasets.push({
             label: 'Scatter Dataset 2',
-            data: d2
+            data: d2,
+            fill:false,
+            borderColor:'#FF0000',
+            borderWidth:1,
+            radius:0
         });
 
 
