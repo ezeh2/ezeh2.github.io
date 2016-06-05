@@ -8,6 +8,7 @@ console.log('hallo');
 
 var lap1_2 = add_distance_columns(lap1);
 var lap2_2 = add_distance_columns(lap2);
+var lap3_2 = [];
 	
 $.each(lap1_2, function (i, o) {
 
@@ -15,6 +16,7 @@ $.each(lap1_2, function (i, o) {
   var distance_from_beginning = lap1_2_item.distance_from_beginning;
 
   var lap2_2_item = get_closest_point(lap2_2, distance_from_beginning);
+  lap3_2.push(lap2_2_item);
 
 });
 
