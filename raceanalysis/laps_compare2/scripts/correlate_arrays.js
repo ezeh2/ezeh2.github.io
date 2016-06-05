@@ -1,4 +1,4 @@
-define(function() {
+define(['get_closest_point'], function(get_closest_point) {
 
     return function(in_array1, in_array2) {
 
