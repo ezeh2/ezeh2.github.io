@@ -4,14 +4,20 @@ define(['jquery'],function($) {
 	
 	return function(in_array) {
 
+	var firstAbsoluteMiliseconds;
+
 	var ret = [];
 	$.each(in_array, function (i, o) {
 
-		var y1 = o.date;
-		var y2 = o.milisecond;
+		// the number of milliseconds since 1970/01/01
+		var absoluteMiliseconds = new Date(o.date);
+		absoluteMiliseconds.setMilliseconds(o.milisecond);
 
-		o.absolute_time = 12;
-		
+		if (i == 0) {
+			firstAbsoluteMiliseconds = absoluteMiliseconds;
+		}
+
+		o.relativeMiliseconds = absoluteMiliseconds - firstAbsoluteMiliseconds
 		ret.push(o);
 	});
 

@@ -6,23 +6,25 @@ define(['./lap1','./lap2','./add_distance_columns','./correlate_arrays','./Chart
 
 console.log('hallo');
 
-var x = add_time_difference_columns(lap1);
-
 var lap1 = add_distance_columns(lap1);
+var lap1 = add_time_difference_columns(lap1);
 var lap2 = add_distance_columns(lap2);
+var lap2 = add_time_difference_columns(lap2);
 var lap = correlate_arrays(lap1, lap2);
 
 var d1 = jquery.map(lap1, function(val, i) {
 	return {
 		y: val.speed / 1000,
-		x: val.distance_from_beginning,		
+        // y: val.relativeMiliseconds,
+		x: val.distance_from_beginning
 	};
 });
 
 var d2 = jquery.map(lap, function(val, i) {
 	return {
 		y: val.speed / 1000,
-		x: val.distance_from_beginning,		
+        // y: val.relativeMiliseconds,
+		x: val.distance_from_beginning
 	};
 });
 
