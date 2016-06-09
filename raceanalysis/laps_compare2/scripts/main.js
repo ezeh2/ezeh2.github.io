@@ -33,6 +33,21 @@ var d3 = jquery.map(lap1, function(val, i) {
     };
 });
 
+var d4 = jquery.map(lap1, function(val, i) {
+    return {
+        y: val.relativeMiliseconds / 1000,
+        x: val.distance_from_beginning
+    };
+});
+
+var d5 = jquery.map(lap, function(val, i) {
+    return {
+        y: val.relativeMiliseconds / 1000,
+        x: val.distance_from_beginning
+    };
+});
+
+
 // is not null --> successfully integrated
 var canvasChart1 = document.getElementById("chart1");
 
@@ -61,6 +76,15 @@ var chartConfig = {
                 id: 'y2',                
                 type: 'linear',
                 position: 'left',
+                scaleLabel: {
+                    display: true,
+                    labelString: '[s]'
+                }
+            },
+            {
+                id: 'y3',                
+                type: 'linear',
+                position: 'right',
                 scaleLabel: {
                     display: true,
                     labelString: '[s]'
@@ -107,6 +131,29 @@ chartConfig.data.datasets.push({
             fill:false,
             borderColor:'#0000FF',
             borderWidth:1,
+            radius:0
+        });
+
+chartConfig.data.datasets.push({
+            label: 'lap1 [s]',
+            yAxisID: 'y3',            
+            data: d4,
+            fill:false,
+            borderColor:'#00FF00',
+            borderWidth:1,
+            borderDash: [15,15],
+            radius:0
+        });
+
+
+chartConfig.data.datasets.push({
+            label: 'lap2 [s]',
+            yAxisID: 'y3',            
+            data: d5,
+            fill:false,
+            borderColor:'#FF0000',
+            borderWidth:1,
+            borderDash: [15,15],            
             radius:0
         });
 
