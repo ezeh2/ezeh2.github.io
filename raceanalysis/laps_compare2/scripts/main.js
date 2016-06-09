@@ -108,7 +108,7 @@ chartConfig.data.datasets.push({
             yAxisID: 'y1',
             data: d1,
             fill:false,
-            borderColor:'#00FF00',
+            borderColor:'#0000FF',
             borderWidth:1,
             radius:0,
             tension:0
@@ -125,21 +125,11 @@ chartConfig.data.datasets.push({
         });
 
 chartConfig.data.datasets.push({
-            label: 'time difference (lap1-lap2) [s]',
-            yAxisID: 'y2',            
-            data: d3,
-            fill:false,
-            borderColor:'#0000FF',
-            borderWidth:1,
-            radius:0
-        });
-
-chartConfig.data.datasets.push({
             label: 'lap1 [s]',
-            yAxisID: 'y3',            
+            yAxisID: 'y2',            
             data: d4,
             fill:false,
-            borderColor:'#00FF00',
+            borderColor:'#0000FF',
             borderWidth:1,
             borderDash: [15,15],
             radius:0
@@ -148,7 +138,7 @@ chartConfig.data.datasets.push({
 
 chartConfig.data.datasets.push({
             label: 'lap2 [s]',
-            yAxisID: 'y3',            
+            yAxisID: 'y2',            
             data: d5,
             fill:false,
             borderColor:'#FF0000',
@@ -157,6 +147,15 @@ chartConfig.data.datasets.push({
             radius:0
         });
 
+chartConfig.data.datasets.push({
+            label: 'time difference (lap1-lap2) [s]',
+            yAxisID: 'y3',            
+            data: d3,
+            fill:false,
+            borderColor:'#00FF00',
+            borderWidth:1,
+            radius:0
+        });
 
 var myChart = new Chart(canvasChart1, chartConfig);
 
