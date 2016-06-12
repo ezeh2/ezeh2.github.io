@@ -29,6 +29,7 @@ line_coordinate.id=1360 (starts at 12:27:07, stops at 12:29:19)
 coordinate_id=4289560
 coordinate_id=4290731
 
+SELECT * FROM app.Coordinates where idxTrace=1681 and Coordinates.id>=4283169 and Coordinates.id<=4284431;
 
 
 
