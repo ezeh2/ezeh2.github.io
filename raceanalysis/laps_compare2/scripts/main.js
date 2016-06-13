@@ -1,14 +1,14 @@
 
 
 
-define(['./lap11','./lap12','./add_distance_columns','./correlate_arrays','./Chart','jquery','add_time_difference_columns'],
-	function(lap1,lap2,add_distance_columns,correlate_arrays, na, jquery, add_time_difference_columns) {
+define(['./lap_selector','./add_distance_columns','./correlate_arrays','./Chart','jquery','add_time_difference_columns'],
+	function(lap_selector,add_distance_columns,correlate_arrays, na, jquery, add_time_difference_columns) {
 
 console.log('hallo');
 
-var lap1 = add_distance_columns(lap1);
+var lap1 = add_distance_columns(lap_selector.lap1);
 var lap1 = add_time_difference_columns(lap1);
-var lap2 = add_distance_columns(lap2);
+var lap2 = add_distance_columns(lap_selector.lap2);
 var lap2 = add_time_difference_columns(lap2);
 var lap = correlate_arrays(lap1, lap2);
 

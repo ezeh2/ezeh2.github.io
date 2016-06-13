@@ -1,5 +1,7 @@
 
-see picture
+http://raceanalyse.test2.toasternet-online.de/phpmyadmin
+
+see picture "lap11_lap12.png"
 
 Curcuit: Brno Circuit
 Lines.id=49

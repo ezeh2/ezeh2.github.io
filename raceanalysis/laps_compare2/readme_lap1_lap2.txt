@@ -1,5 +1,5 @@
 
-http://raceanalyse.test2.toasternet-online.de/
+http://raceanalyse.test2.toasternet-online.de/phpmyadmin
 
 SELECT count(*),line_id FROM `raceanalysis-2016-05-21`.`line_coordinate` group by line_id;
 
