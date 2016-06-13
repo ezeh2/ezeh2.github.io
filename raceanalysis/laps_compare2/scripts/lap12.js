@@ -1,5 +1,5 @@
-[
-	{
+
+define(function() { return [ {
 		"id" : 4289560,
 		"idxTrace" : 1681,
 		"idxEvent" : 0,
@@ -15235,4 +15235,4 @@
 		"pressure" : 0,
 		"speed" : 63759
 	}
-]
+]; } );

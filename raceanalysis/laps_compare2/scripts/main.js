@@ -1,7 +1,7 @@
 
 
 
-define(['./lap1','./lap2','./add_distance_columns','./correlate_arrays','./Chart','jquery','add_time_difference_columns'],
+define(['./lap11','./lap12','./add_distance_columns','./correlate_arrays','./Chart','jquery','add_time_difference_columns'],
 	function(lap1,lap2,add_distance_columns,correlate_arrays, na, jquery, add_time_difference_columns) {
 
 console.log('hallo');
@@ -13,17 +13,25 @@ var lap2 = add_time_difference_columns(lap2);
 var lap = correlate_arrays(lap1, lap2);
 
 var d1 = jquery.map(lap1, function(val, i) {
-	return {
-		y: val.speed / 1000,
-		x: val.distance_from_beginning
-	};
+    if (val) {
+    	return {
+    		y: val.speed / 1000,
+    		x: val.distance_from_beginning
+    	};
+    } else {
+        console.log(i);
+    }
 });
 
 var d2 = jquery.map(lap, function(val, i) {
-	return {
-		y: val.speed / 1000,
-		x: val.distance_from_beginning
-	};
+    if (val) {    
+    	return {
+    		y: val.speed / 1000,
+    		x: val.distance_from_beginning
+    	};
+    } else {
+        console.log(i);
+    }    
 });
 
 var d3 = jquery.map(lap1, function(val, i) {
