@@ -111,8 +111,15 @@ var chartConfig = {
 
 chartConfig.data = { datasets: [] };
 
+var legend = function() {
+    return '( idxTrace=' + this[0].idxTrace + ', date='+ this[0].date+' )';
+}
+
+lap1.legend = legend;
+lap2.legend = legend;
+
 chartConfig.data.datasets.push({
-            label: 'lap1 [km/h]',
+            label: 'lap1 [km/h] ' + lap1.legend(),
             yAxisID: 'y1',
             data: d1,
             fill:false,
@@ -123,7 +130,7 @@ chartConfig.data.datasets.push({
         });
 
 chartConfig.data.datasets.push({
-            label: 'lap2 [km/h]',
+            label: 'lap2 [km/h]' + lap2.legend(),
             yAxisID: 'y1',            
             data: d2,
             fill:false,
