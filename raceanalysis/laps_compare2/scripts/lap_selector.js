@@ -3,7 +3,7 @@ define(['lap1','lap2','lap11','lap12'], function(lap1, lap2, lap11, lap12) {
 	var lapIndex = 1;
 
    var url = window.document.URL;
-   var hashIndex = url.indexOf('#');
+   var hashIndex = url.indexOf('?');
    if (hashIndex != -1) {
 	   var numberAfterHash = url.substring(hashIndex + 1, url.length);
 	   lapIndex = parseInt(numberAfterHash);
