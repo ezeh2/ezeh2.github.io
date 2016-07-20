@@ -1,29 +1,37 @@
 
 
 
-define(['./lap1','./lap2','./add_distance_columns','./correlate_arrays','./Chart','jquery','add_time_difference_columns'],
-	function(lap1,lap2,add_distance_columns,correlate_arrays, na, jquery, add_time_difference_columns) {
+define(['./lap_selector','./add_distance_columns','./correlate_arrays','./Chart','jquery','add_time_difference_columns'],
+	function(lap_selector,add_distance_columns,correlate_arrays, na, jquery, add_time_difference_columns) {
 
 console.log('hallo');
 
-var lap1 = add_distance_columns(lap1);
+var lap1 = add_distance_columns(lap_selector.lap1);
 var lap1 = add_time_difference_columns(lap1);
-var lap2 = add_distance_columns(lap2);
+var lap2 = add_distance_columns(lap_selector.lap2);
 var lap2 = add_time_difference_columns(lap2);
 var lap = correlate_arrays(lap1, lap2);
 
 var d1 = jquery.map(lap1, function(val, i) {
-	return {
-		y: val.speed / 1000,
-		x: val.distance_from_beginning
-	};
+    if (val) {
+    	return {
+    		y: val.speed / 1000,
+    		x: val.distance_from_beginning
+    	};
+    } else {
+        console.log(i);
+    }
 });
 
 var d2 = jquery.map(lap, function(val, i) {
-	return {
-		y: val.speed / 1000,
-		x: val.distance_from_beginning
-	};
+    if (val) {    
+    	return {
+    		y: val.speed / 1000,
+    		x: val.distance_from_beginning
+    	};
+    } else {
+        console.log(i);
+    }    
 });
 
 var d3 = jquery.map(lap1, function(val, i) {
@@ -103,8 +111,15 @@ var chartConfig = {
 
 chartConfig.data = { datasets: [] };
 
+var legend = function() {
+    return '( idxTrace=' + this[0].idxTrace + ', date='+ this[0].date+' )';
+}
+
+lap1.legend = legend;
+lap2.legend = legend;
+
 chartConfig.data.datasets.push({
-            label: 'lap1 [km/h]',
+            label: 'lap1 [km/h] ' + lap1.legend(),
             yAxisID: 'y1',
             data: d1,
             fill:false,
@@ -115,7 +130,7 @@ chartConfig.data.datasets.push({
         });
 
 chartConfig.data.datasets.push({
-            label: 'lap2 [km/h]',
+            label: 'lap2 [km/h]' + lap2.legend(),
             yAxisID: 'y1',            
             data: d2,
             fill:false,
