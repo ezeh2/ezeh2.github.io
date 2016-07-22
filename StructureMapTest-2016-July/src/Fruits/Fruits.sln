@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FruitInterfaces", "FruitInterfaces\FruitInterfaces.csproj", "{0C59E855-B339-4C70-8411-53AC73036668}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FruitImplementations", "FruitImplementations\FruitImplementations.csproj", "{EC100BE4-16DD-429C-9B38-C524A2EA02D6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StructureMap_Tests", "StructureMap_Tests\StructureMap_Tests.csproj", "{53A9CE31-0C0B-4468-BA08-C74E53E73E0A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0C59E855-B339-4C70-8411-53AC73036668}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C59E855-B339-4C70-8411-53AC73036668}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C59E855-B339-4C70-8411-53AC73036668}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C59E855-B339-4C70-8411-53AC73036668}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC100BE4-16DD-429C-9B38-C524A2EA02D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC100BE4-16DD-429C-9B38-C524A2EA02D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC100BE4-16DD-429C-9B38-C524A2EA02D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC100BE4-16DD-429C-9B38-C524A2EA02D6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{53A9CE31-0C0B-4468-BA08-C74E53E73E0A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53A9CE31-0C0B-4468-BA08-C74E53E73E0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53A9CE31-0C0B-4468-BA08-C74E53E73E0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53A9CE31-0C0B-4468-BA08-C74E53E73E0A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
