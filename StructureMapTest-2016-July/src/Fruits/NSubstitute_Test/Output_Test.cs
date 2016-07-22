@@ -45,5 +45,22 @@ namespace NSubstitute_Test
             // assert
             Assert.That(output.Weight, Is.EqualTo(20));
         }
+
+        [Test]
+        public void Test_IEnumerable_GetEnumerator()
+        {
+            // arrange 
+            var enumerable = Substitute.For<IEnumerable<string>>();
+
+            List<string> l = new List<string>();
+            enumerable.GetEnumerator().Returns<IEnumerator<string>>(l.GetEnumerator());
+
+            // act
+            foreach(string s in enumerable)
+            {
+            }
+
+            enumerable.Received().GetEnumerator();
+        }
     }
 }
