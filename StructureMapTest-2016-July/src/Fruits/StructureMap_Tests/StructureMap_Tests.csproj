@@ -47,10 +47,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Fruit_Test.cs" />
+    <Compile Include="OwnMockOutput.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FruitImplementations\FruitImplementations.csproj">
@@ -61,6 +59,9 @@
       <Project>{0c59e855-b339-4c70-8411-53ac73036668}</Project>
       <Name>FruitInterfaces</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
