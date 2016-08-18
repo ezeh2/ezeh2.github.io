@@ -1,4 +1,4 @@
-describe("JQuery", function() {
+describe("SpyTwiddlingSpec", function() {
 
  it("should ", function () {
 
