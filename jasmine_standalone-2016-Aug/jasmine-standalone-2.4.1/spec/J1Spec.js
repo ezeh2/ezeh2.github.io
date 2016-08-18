@@ -22,11 +22,4 @@ describe("J1", function() {
      f1: function () {}
   };
 
-  it('mocks should work', function () {
-
-
-
-  });
-
-
 });
