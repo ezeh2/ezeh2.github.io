@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+    <EditText
+        android:inputType="numberDecimal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/latitudeEntry"
+        android:hint="Latitude" />
+    <EditText
+        android:inputType="numberDecimal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/longitudeEntry"
+        android:layout_marginTop="10.0dp"
+        android:hint="Longitude" />
+    <Button
+        android:id="@+id/areWeThereButton"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/AreWeThereYet"
+        android:layout_marginTop="10.0dp" />
+    <TextView
+        android:text="Tell me your coordinates and I'll check."
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:id="@+id/resultText"
+        android:layout_marginTop="10.0dp" />
+</LinearLayout>
