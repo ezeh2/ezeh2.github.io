@@ -1,0 +1,17 @@
+http://www.bricelam.net/2012/10/entity-framework-on-sqlite.html
+
+Install-Package EntityFramework
+Install-Package System.Data.SQLite.x86
+
+
+Editor with Gui for editing SqLite:
+http://sqlitestudio.pl/
+
+
+Could not load file or assembly 'System.Data.SQLite, Version=1.0.61.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139' or one of its dependencies. An attempt was made to load a program with an incorrect format.
+
+Description: An unhandled exception occurred during the execution of the current web request. Please review the stack trace for more information about the error and where it originated in the code.
+
+Exception Details: System.BadImageFormatException: Could not load file or assembly 'System.Data.SQLite, Version=1.0.61.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139' or one of its dependencies. An attempt was made to load a program with an incorrect format.
+
+http://stackoverflow.com/questions/1278929/could-not-load-file-or-assembly-system-data-sqlite
