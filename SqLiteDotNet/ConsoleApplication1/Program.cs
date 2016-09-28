@@ -5,7 +5,7 @@ using System.Text;
 
 namespace ConsoleApplication1
 {
-    // Platform-Target must be X86 !!
+    // Platform-Target must be X86 !! (otherweise you need use nuget package System.Data.SQLite.x64)
     // http://www.bricelam.net/2012/10/entity-framework-on-sqlite.html
     class Program
     {
