@@ -35,7 +35,7 @@ namespace SourceCodeIndexWithLucene
                 int lineNumber = 1;
                 while ((line = sr.ReadLine()) != null)
                 {
-                    action(filePath, lineNumber, fileContent);
+                    action(filePath, lineNumber, line);
                     lineNumber++;
                 }
             }

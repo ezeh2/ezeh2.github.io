@@ -40,5 +40,14 @@ namespace SourceCodeIndexWithLucene.Properties {
                 return ((string)(this["IndexPath"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string SearchResultPath {
+            get {
+                return ((string)(this["SearchResultPath"]));
+            }
+        }
     }
 }

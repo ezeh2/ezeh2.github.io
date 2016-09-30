@@ -56,6 +56,7 @@
     </Compile>
     <Compile Include="TilsiterFileProcessor.cs" />
     <Compile Include="TilsiterIndex.cs" />
+    <Compile Include="TilsiterSearcher.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

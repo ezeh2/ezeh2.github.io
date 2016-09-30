@@ -28,6 +28,13 @@ namespace SourceCodeIndexWithLucene
                     }
                 );
             }
+
+            TilsiterSearcher tilsiterSearcher = new TilsiterSearcher(indexPath);
+            tilsiterSearcher.Open();
+            using (TextWriter tw = new TextWriter())
+            {
+                tilsiterSearcher.Search("class", tw);
+            }
         }
     }
 }
