@@ -25,7 +25,7 @@ namespace SourceCodeIndexWithLucene.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("C:\\projects\\GlobalLicenseManagement\\trunk\\Development\\src")]
         public string SourcePath {
             get {
                 return ((string)(this["SourcePath"]));
@@ -34,7 +34,7 @@ namespace SourceCodeIndexWithLucene.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("index")]
         public string IndexPath {
             get {
                 return ((string)(this["IndexPath"]));
@@ -43,7 +43,7 @@ namespace SourceCodeIndexWithLucene.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("search_result.txt")]
         public string SearchResultPath {
             get {
                 return ((string)(this["SearchResultPath"]));

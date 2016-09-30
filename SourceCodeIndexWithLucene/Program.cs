@@ -28,8 +28,7 @@ namespace SourceCodeIndexWithLucene
             {
                 Directory.Delete(indexPath, true);
             }
-
-            if (buildIndex)
+            else if (buildIndex)
             {
                 if (!Directory.Exists(indexPath))
                 {
@@ -37,10 +36,10 @@ namespace SourceCodeIndexWithLucene
                 }
                 else
                 {
-                    throw new ApplicationException("index already exists, please use -delete_index first");
+                    Directory.Delete(indexPath, true);
                 }
 
-                TilsiterFileProcessor fileProcessor = new TilsiterFileProcessor(sourcePath, "*.cs");
+                TilsiterFileProcessor fileProcessor = new TilsiterFileProcessor(sourcePath, "*.cs;*.js");
                 using (TilsiterIndex index = new TilsiterIndex(indexPath))
                 {
                     fileProcessor.EnumerateAllLines(
@@ -51,23 +50,25 @@ namespace SourceCodeIndexWithLucene
                     );
                 }
             }
-
-            if (!Directory.Exists(indexPath))
+            else
             {
-                throw new ApplicationException("no index exists, please use -build_index first");
-            }
+                if (!Directory.Exists(indexPath))
+                {
+                    throw new ApplicationException("no index exists, please use -build_index first");
+                }
 
-            string search_term = null;
-            if (args.Length == 1)
-            {
-                search_term = args[0];
-            }
+                string search_term = null;
+                if (args.Length == 1)
+                {
+                    search_term = args[0];
+                }
 
-            TilsiterSearcher tilsiterSearcher = new TilsiterSearcher(indexPath);
-            tilsiterSearcher.Open();
-            using (TextWriter tw = File.CreateText(searchResultPath))
-            {
-                tilsiterSearcher.Search(search_term, tw);
+                TilsiterSearcher tilsiterSearcher = new TilsiterSearcher(indexPath);
+                tilsiterSearcher.Open();
+                using (TextWriter tw = File.CreateText(searchResultPath))
+                {
+                    tilsiterSearcher.Search(search_term, tw);
+                }
             }
         }
     }

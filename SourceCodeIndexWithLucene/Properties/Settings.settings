@@ -3,13 +3,13 @@
   <Profiles />
   <Settings>
     <Setting Name="SourcePath" Type="System.String" Scope="Application">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">C:\projects\GlobalLicenseManagement\trunk\Development\src</Value>
     </Setting>
     <Setting Name="IndexPath" Type="System.String" Scope="Application">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">index</Value>
     </Setting>
     <Setting Name="SearchResultPath" Type="System.String" Scope="Application">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">search_result.txt</Value>
     </Setting>
   </Settings>
 </SettingsFile>
