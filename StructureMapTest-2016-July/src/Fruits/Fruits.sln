@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FruitImplementations", "Fru
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StructureMap_Tests", "StructureMap_Tests\StructureMap_Tests.csproj", "{53A9CE31-0C0B-4468-BA08-C74E53E73E0A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "rhinos_mocks_test", "rhinos_mocks_test\rhinos_mocks_test.csproj", "{88D36BAA-A7DA-45FD-A810-2C2EAD4CADCD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NSubstitute_Test", "NSubstitute_Test\NSubstitute_Test.csproj", "{30A1D844-EFCA-4313-99F3-1919F3AE16C9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,6 +29,14 @@ Global
 		{53A9CE31-0C0B-4468-BA08-C74E53E73E0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{53A9CE31-0C0B-4468-BA08-C74E53E73E0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{53A9CE31-0C0B-4468-BA08-C74E53E73E0A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{88D36BAA-A7DA-45FD-A810-2C2EAD4CADCD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88D36BAA-A7DA-45FD-A810-2C2EAD4CADCD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88D36BAA-A7DA-45FD-A810-2C2EAD4CADCD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88D36BAA-A7DA-45FD-A810-2C2EAD4CADCD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{30A1D844-EFCA-4313-99F3-1919F3AE16C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{30A1D844-EFCA-4313-99F3-1919F3AE16C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{30A1D844-EFCA-4313-99F3-1919F3AE16C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{30A1D844-EFCA-4313-99F3-1919F3AE16C9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
