@@ -12,6 +12,7 @@ namespace SourceCodeIndexWithLucene
         {
             string sourcePath = SourceCodeIndexWithLucene.Properties.Settings.Default.SourcePath;
             string indexPath = SourceCodeIndexWithLucene.Properties.Settings.Default.IndexPath;
+            string searchResultPath = SourceCodeIndexWithLucene.Properties.Settings.Default.SearchResultPath;
             Directory.Delete(indexPath, true);
             if (!Directory.Exists(indexPath))
             {                
@@ -31,7 +32,7 @@ namespace SourceCodeIndexWithLucene
 
             TilsiterSearcher tilsiterSearcher = new TilsiterSearcher(indexPath);
             tilsiterSearcher.Open();
-            using (TextWriter tw = new TextWriter())
+            using (TextWriter tw = File.CreateText(searchResultPath))
             {
                 tilsiterSearcher.Search("class", tw);
             }
