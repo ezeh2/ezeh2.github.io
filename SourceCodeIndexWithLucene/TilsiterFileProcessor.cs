@@ -19,7 +19,7 @@ namespace SourceCodeIndexWithLucene
 
         internal void EnumerateAllLines(Action<string, int, string> action)
         {
-            string[] files = Directory.GetFiles(sourcePath, "*.*", SearchOption.AllDirectories);
+            string[] files = Directory.GetFiles(sourcePath, searchPattern, SearchOption.AllDirectories);
             foreach(string file in files)
             {
                 string allText = File.ReadAllText(file);
