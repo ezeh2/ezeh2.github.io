@@ -9,24 +9,27 @@ namespace SourceCodeIndexWithLucene
     internal class TilsiterFileProcessor
     {
         private string sourcePath;
-        private string searchPattern;
+        private List<string> searchPatterns;
         private int lineCount;
 
-        internal TilsiterFileProcessor(string sourcePath, string searchPattern)
+        internal TilsiterFileProcessor(string sourcePath, List<string> searchPatterns)
         {
             this.sourcePath = sourcePath;
-            this.searchPattern = searchPattern;
+            this.searchPatterns = searchPatterns;
         }
 
         internal void EnumerateAllLines(Action<string, int, string> action)
         {
             lineCount = 0;
-            string[] files = Directory.GetFiles(sourcePath, searchPattern, SearchOption.AllDirectories);
-            System.Console.WriteLine("{0} files with {1} found in {2} ", files.Length,searchPattern, sourcePath);
-            foreach(string file in files)
+            foreach (string searchPattern in searchPatterns)
             {
-                string allText = File.ReadAllText(file);
-                ProcessFile(action, file, allText);
+                string[] files = Directory.GetFiles(sourcePath, searchPattern, SearchOption.AllDirectories);
+                System.Console.WriteLine("{0} files with {1} found in {2} ", files.Length, searchPattern, sourcePath);
+                foreach (string file in files)
+                {
+                    string allText = File.ReadAllText(file);
+                    ProcessFile(action, file, allText);
+                }
             }
             System.Console.WriteLine("{0} lines of text added to index", lineCount);
         }
