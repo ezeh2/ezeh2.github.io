@@ -10,6 +10,7 @@ namespace SourceCodeIndexWithLucene
     {
         private string sourcePath;
         private string searchPattern;
+        private int lineCount;
 
         internal TilsiterFileProcessor(string sourcePath, string searchPattern)
         {
@@ -19,15 +20,18 @@ namespace SourceCodeIndexWithLucene
 
         internal void EnumerateAllLines(Action<string, int, string> action)
         {
+            lineCount = 0;
             string[] files = Directory.GetFiles(sourcePath, searchPattern, SearchOption.AllDirectories);
+            System.Console.WriteLine("{0} files with {1} found in {2} ", files.Length,searchPattern, sourcePath);
             foreach(string file in files)
             {
                 string allText = File.ReadAllText(file);
                 ProcessFile(action, file, allText);
             }
+            System.Console.WriteLine("{0} lines of text added to index", lineCount);
         }
 
-        private static void ProcessFile(Action<string, int, string> action, string filePath, string fileContent)
+        private void ProcessFile(Action<string, int, string> action, string filePath, string fileContent)
         {
             using (StringReader sr = new StringReader(fileContent))
             {
@@ -38,6 +42,7 @@ namespace SourceCodeIndexWithLucene
                     action(filePath, lineNumber, line);
                     lineNumber++;
                 }
+                lineCount += lineNumber;
             }
         }
 

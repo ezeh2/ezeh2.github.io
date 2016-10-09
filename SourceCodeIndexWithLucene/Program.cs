@@ -10,17 +10,24 @@ namespace SourceCodeIndexWithLucene
     {
         static void Main(string[] args)
         {
+            if (args.Length==0)
+            {
+                System.Console.WriteLine("SourceCodeIndexWithLucene [-build-index] [-delete-index] [search_term]");
+                System.Console.WriteLine("");
+                System.Console.WriteLine("usage:");
+                return;
+            }
             string sourcePath = SourceCodeIndexWithLucene.Properties.Settings.Default.SourcePath;
             string indexPath = SourceCodeIndexWithLucene.Properties.Settings.Default.IndexPath;
             string searchResultPath = SourceCodeIndexWithLucene.Properties.Settings.Default.SearchResultPath;
             bool buildIndex = false;
             bool deleteIndex = false;
 
-            if (args.Contains("-build_index"))
+            if (args.Contains("-build-index"))
             {
                 buildIndex = true;
             }
-            if (args.Contains("-delete_index"))
+            if (args.Contains("-delete-index"))
             {
                 deleteIndex = true;
             }
@@ -39,7 +46,7 @@ namespace SourceCodeIndexWithLucene
                     Directory.Delete(indexPath, true);
                 }
 
-                TilsiterFileProcessor fileProcessor = new TilsiterFileProcessor(sourcePath, "*.cs;*.js");
+                TilsiterFileProcessor fileProcessor = new TilsiterFileProcessor(sourcePath, "*.cs");
                 using (TilsiterIndex index = new TilsiterIndex(indexPath))
                 {
                     fileProcessor.EnumerateAllLines(
@@ -54,7 +61,7 @@ namespace SourceCodeIndexWithLucene
             {
                 if (!Directory.Exists(indexPath))
                 {
-                    throw new ApplicationException("no index exists, please use -build_index first");
+                    System.Console.WriteLine("no index exists, please use -build_index first");
                 }
 
                 string search_term = null;

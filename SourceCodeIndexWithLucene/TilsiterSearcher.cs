@@ -41,7 +41,7 @@ namespace SourceCodeIndexWithLucene
                 Document hitDoc = isearcher.Doc(topDocs.ScoreDocs[i].Doc);
                 textWriter.WriteLine("{0}", hitDoc.GetField("line").StringValue);
             }
-
+            System.Console.WriteLine($@"{topDocs.ScoreDocs.Length} lines matching search term ""{text}"" found and written to search_result.txt");
         }
 
         private TopDocs GetTopDocs(string text)
