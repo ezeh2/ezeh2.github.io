@@ -46,11 +46,11 @@ namespace SourceCodeIndexWithLucene
                     Directory.Delete(indexPath, true);
                 }
 
-                List<string> searchPatterns = new List<string>();
-                searchPatterns.Add("*.cs");
-                searchPatterns.Add("*.js");
-                searchPatterns.Add("*.css");
-                searchPatterns.Add("*.html");
+                List<AbstractTextConverter> searchPatterns = new List<AbstractTextConverter>();
+                searchPatterns.Add(new PlainTextToTextConverter("*.cs"));
+                searchPatterns.Add(new PlainTextToTextConverter("*.js"));
+                searchPatterns.Add(new PlainTextToTextConverter("*.css"));
+                searchPatterns.Add(new PlainTextToTextConverter("*.html"));
                 TilsiterFileProcessor fileProcessor = new TilsiterFileProcessor(sourcePath, searchPatterns);
                 using (TilsiterIndex index = new TilsiterIndex(indexPath))
                 {
