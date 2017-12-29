@@ -1,0 +1,42 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [      
+        /* 
+        {
+            "taskName": "tokenizer_run",
+            "command": "dotnet run ./tokenizer/tokenizer.csproj",
+            "type": "shell",
+            "group": "build",
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            },
+            "problemMatcher": "$msCompile"
+        },
+        */
+        {
+            "taskName": "tokenizer_test_build",
+            "command": "dotnet build ./tokenizer_test/tokenizer_test.csproj",
+            "type": "shell",
+            "group": "build",
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            },
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "taskName": "tokenizer_test_run",
+            "command": "dotnet run --project ./tokenizer_test/tokenizer_test.csproj",
+            "type": "shell",
+            "group": "build",
+            "presentation": {
+                "reveal": "always",
+                "panel": "shared"
+            },
+            "problemMatcher": "$msCompile"
+        }                       
+    ]
+}
