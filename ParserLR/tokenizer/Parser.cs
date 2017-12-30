@@ -38,7 +38,10 @@ namespace tokenizer
                         break;
                     case 1:
                         Process1(token);
-                        break;                        
+                        break;      
+                    case 2:
+                        Process1(token);
+                        break;                                                                  
                 }
             }
 
@@ -90,6 +93,7 @@ namespace tokenizer
             }                                      
             else if ( (token.TokenType==TokenType.SpecialCharacter) && (token.Value=="/") )
             {
+                ChangeState(2);                
             }                     
             else if ( (token.TokenType==TokenType.SpecialCharacter) && (token.Value==">") )
             {                
@@ -99,7 +103,23 @@ namespace tokenizer
             {
                 throw new ApplicationException($"unexpected: {token.ToString()}");
             }
-        }        
+        }       
+
+        private void Process2(Token token)
+        {
+            if (token.TokenType==TokenType.WhiteSpace)
+            {
+                // swallow whitespace
+            }                                      
+            else if ( (token.TokenType==TokenType.SpecialCharacter) && (token.Value==">") )
+            {                
+                ChangeState(0);
+            }         
+            else
+            {
+                throw new ApplicationException($"unexpected: {token.ToString()}");
+            }
+        }             
         
     }
 }

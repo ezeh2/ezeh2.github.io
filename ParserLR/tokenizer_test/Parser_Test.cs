@@ -6,10 +6,13 @@ namespace tokenizer_test
 {
     public class Parser_Test
     {
-        [Fact]
-        public void CreateParsedItems_Value_Test1()
+        [Theory]
+        [InlineData(" sc ss<aa>")]
+        [InlineData(" sc ss< aa >")]
+        [InlineData(" sc ss<aa >")]
+        public void CreateParsedItems_HtmlTagBegin_Test1(string value)
         {
-            Parser parser = new Parser(" sc ss<aa>");
+            Parser parser = new Parser(value);
             var parsedItems = parser.CreateParsedItems();
             Assert.Equal(2,parsedItems.Count);
             Assert.Equal(ParsedItemType.Text,parsedItems[0].ParsedItemType);
@@ -18,22 +21,13 @@ namespace tokenizer_test
             Assert.Equal("aa",parsedItems[1].Value);                                                       
         }
 
-        [Fact]
-        public void CreateParsedItems_Value_Test2()
+        [Theory]
+        [InlineData(" sc ss<aa> x/a+2")]
+        [InlineData(" sc ss< aa> x/a+2")]
+        [InlineData(" sc ss< aa > x/a+2")]
+        public void CreateParsedItems_HtmlTagBegin_Test2(string value)
         {
-            Parser parser = new Parser(" sc ss< aa >");
-            var parsedItems = parser.CreateParsedItems();
-            Assert.Equal(2,parsedItems.Count);
-            Assert.Equal(ParsedItemType.Text,parsedItems[0].ParsedItemType);
-            Assert.Equal(" sc ss",parsedItems[0].Value);     
-            Assert.Equal(ParsedItemType.HtmlTagBegin,parsedItems[1].ParsedItemType);
-            Assert.Equal("aa",parsedItems[1].Value);                                                       
-        }        
-
-        [Fact]
-        public void CreateParsedItems_Value_Test3()
-        {
-            Parser parser = new Parser(" sc ss<aa> x/a+2");
+            Parser parser = new Parser(value);
             var parsedItems = parser.CreateParsedItems();
             Assert.Equal(3,parsedItems.Count);
             Assert.Equal(ParsedItemType.Text,parsedItems[0].ParsedItemType);
@@ -49,6 +43,9 @@ namespace tokenizer_test
         [InlineData(" ",1)]
         [InlineData(" sc ss",1)]        
         [InlineData(" sc ss<aa>",2)] 
+        [InlineData(" sc ss< aa >",2)] 
+        [InlineData(" sc ss<aa/>",2)] 
+        [InlineData(" sc ss< aa / >",2)] 
         public void CreateParsedItems_Count_Test(string value,int count)
         {
             Parser parser = new Parser(value);
