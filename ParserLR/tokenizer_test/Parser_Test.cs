@@ -25,13 +25,22 @@ namespace tokenizer_test
         }
 
         [Theory]
+        [InlineData(" sc ss<a a>")]
+        public void CreateParsedItems_HtmlTagBeginSyntax_Error_Test2(string value)
+        {
+            Parser parser = new Parser(value);
+            // throw ApplicationException with Message "Unexpected a"
+            Assert.Throws<ApplicationException>(()=> {parser.CreateParsedItems();});
+        }        
+
+        [Theory]
         [InlineData(" sc ss<aa> x/a+2",ParsedItemType.HtmlTagBegin)]
         [InlineData(" sc ss< aa> x/a+2",ParsedItemType.HtmlTagBegin)]
         [InlineData(" sc ss< aa > x/a+2",ParsedItemType.HtmlTagBegin)]
         [InlineData(" sc ss<aa/> x/a+2",ParsedItemType.HtmlTagEnd)]
         [InlineData(" sc ss< aa/> x/a+2",ParsedItemType.HtmlTagEnd)]
         [InlineData(" sc ss< aa/ > x/a+2",ParsedItemType.HtmlTagEnd)]        
-        public void CreateParsedItems_HtmlTagBegin_Test2(string value, ParsedItemType parsedItemType)
+        public void CreateParsedItems_HtmlTagBegin_Test3(string value, ParsedItemType parsedItemType)
         {
             Parser parser = new Parser(value);
             var parsedItems = parser.CreateParsedItems();
