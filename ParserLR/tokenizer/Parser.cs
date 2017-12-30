@@ -40,7 +40,7 @@ namespace tokenizer
                         Process1(token);
                         break;      
                     case 2:
-                        Process1(token);
+                        Process2(token);
                         break;                                                                  
                 }
             }
