@@ -39,8 +39,8 @@ namespace tokenizer
                     case 1:
                         Process1(token);
                         break;      
-                    case 2:
-                        Process2(token);
+                    case 11:
+                        Process11(token);
                         break;                                                                  
                 }
             }
@@ -67,7 +67,7 @@ namespace tokenizer
                         parsedItems.Add(new ParsedItem(ParsedItemType.HtmlTagBegin,valueSb.ToString(),null) );     
                         valueSb.Clear();                                 
                         break;           
-                    case 2:
+                    case 11:
                         parsedItems.Add(new ParsedItem(ParsedItemType.HtmlTagEnd,valueSb.ToString()) );     
                         valueSb.Clear();                                 
                         break;                                                                                             
@@ -100,7 +100,7 @@ namespace tokenizer
             }                                      
             else if ( (token.TokenType==TokenType.SpecialCharacter) && (token.Value=="/") )
             {
-                ChangeState(2,false);                
+                ChangeState(11,false);                
             }                     
             else if ( (token.TokenType==TokenType.SpecialCharacter) && (token.Value==">") )
             {                
@@ -112,7 +112,7 @@ namespace tokenizer
             }
         }       
 
-        private void Process2(Token token)
+        private void Process11(Token token)
         {
             if (token.TokenType==TokenType.WhiteSpace)
             {
