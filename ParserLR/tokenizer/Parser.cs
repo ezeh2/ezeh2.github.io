@@ -39,6 +39,9 @@ namespace tokenizer
                     case 1:
                         Process1(token);
                         break;      
+                    case 2:
+                        Process2(token);
+                        break;                              
                     case 11:
                         Process11(token);
                         break;                                                                  
@@ -63,14 +66,17 @@ namespace tokenizer
                         }
                         valueSb.Clear();
                         break;      
-                    case 1:
+                    case 2:
                         parsedItems.Add(new ParsedItem(ParsedItemType.HtmlTagBegin,valueSb.ToString(),null) );     
                         valueSb.Clear();                                 
                         break;           
                     case 11:
                         parsedItems.Add(new ParsedItem(ParsedItemType.HtmlTagEnd,valueSb.ToString()) );     
                         valueSb.Clear();                                 
-                        break;                                                                                             
+                        break;      
+                    default:
+                        throw new ApplicationException($"ChangeState: expected case for {state}");
+                        break;                                                                                       
                 }
             }
             state=newState;
@@ -93,8 +99,21 @@ namespace tokenizer
             if (token.TokenType==TokenType.Text)
             {
                 valueSb.Append(token.Value);
+                ChangeState(2,false);
             }    
             else if (token.TokenType==TokenType.WhiteSpace)
+            {
+                // swallow whitespace
+            }                                      
+            else
+            {
+                throw new ApplicationException($"unexpected: {token.ToString()}");
+            }
+        }       
+
+        private void Process2(Token token)
+        {
+            if (token.TokenType==TokenType.WhiteSpace)
             {
                 // swallow whitespace
             }                                      
@@ -110,7 +129,7 @@ namespace tokenizer
             {
                 throw new ApplicationException($"unexpected: {token.ToString()}");
             }
-        }       
+        }          
 
         private void Process11(Token token)
         {
