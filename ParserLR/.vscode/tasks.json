@@ -28,8 +28,8 @@
             "problemMatcher": "$msCompile"
         },
         {
-            "taskName": "tokenizer_test_run",
-            "command": "dotnet run --project ./tokenizer_test/tokenizer_test.csproj",
+            "taskName": "tokenizer_test_test",
+            "command": "dotnet test ./tokenizer_test/tokenizer_test.csproj",
             "type": "shell",
             "group": "build",
             "presentation": {

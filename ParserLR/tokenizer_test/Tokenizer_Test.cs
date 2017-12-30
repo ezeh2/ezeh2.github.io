@@ -17,10 +17,10 @@ namespace tokenizer_test
             Assert.Equal("a",tokenizer.TokenList[1].Value);
             Assert.Equal(TokenType.WhiteSpace,tokenizer.TokenList[2].TokenType);
             Assert.Equal(" ",tokenizer.TokenList[2].Value);            
-            Assert.Equal(TokenType.WhiteSpace,tokenizer.TokenList[3].TokenType);
-            Assert.Equal(" ",tokenizer.TokenList[3].Value);            
-            Assert.Equal(TokenType.WhiteSpace,tokenizer.TokenList[4].TokenType);
-            Assert.Equal(" ",tokenizer.TokenList[4].Value);                        
+            Assert.Equal(TokenType.SpecialCharacter,tokenizer.TokenList[3].TokenType);
+            Assert.Equal("/",tokenizer.TokenList[3].Value);            
+            Assert.Equal(TokenType.Text,tokenizer.TokenList[4].TokenType);
+            Assert.Equal("y",tokenizer.TokenList[4].Value);                        
         }
 
         [Theory]

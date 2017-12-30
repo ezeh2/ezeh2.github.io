@@ -1,15 +1,15 @@
 using System;
+using tokenizer;
+
 namespace tokenizer_test
 {
     public class Program
     {
-        public static void Main(string[] args)
+        public static void Main()
         {
-            var test = new Tokenizer_Test();
-            // test.Test1();
-            Console.WriteLine("Enter text...");
-            Console.ReadLine();
-
+            Parser p = new Parser(" sc ss<aa>");
+            var x = p.CreateParsedItems();
+            Console.WriteLine("Finished tokenizer_test.Program.Main");
         }
     }
 }
