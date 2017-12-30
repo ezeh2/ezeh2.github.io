@@ -45,26 +45,33 @@ namespace tokenizer
                 }
             }
 
-            ChangeState(-1);
+            ChangeState(-1,true);
 
             return parsedItems;
         }
 
-        private void ChangeState(int newState)
+        private void ChangeState(int newState, bool createParsedItem)
         {
-            switch(state)
+            if (createParsedItem)
             {
-                case 0:
-                    if (valueSb.Length>0)
-                    {
-                        parsedItems.Add(new ParsedItem(ParsedItemType.Text,valueSb.ToString()) );   
-                    }
-                    valueSb.Clear();
-                    break;      
-                case 1:
-                    parsedItems.Add(new ParsedItem(ParsedItemType.HtmlTagBegin,valueSb.ToString(),null) );     
-                    valueSb.Clear();                                 
-                    break;                                        
+                switch(state)
+                {
+                    case 0:
+                        if (valueSb.Length>0)
+                        {
+                            parsedItems.Add(new ParsedItem(ParsedItemType.Text,valueSb.ToString()) );   
+                        }
+                        valueSb.Clear();
+                        break;      
+                    case 1:
+                        parsedItems.Add(new ParsedItem(ParsedItemType.HtmlTagBegin,valueSb.ToString(),null) );     
+                        valueSb.Clear();                                 
+                        break;           
+                    case 2:
+                        parsedItems.Add(new ParsedItem(ParsedItemType.HtmlTagEnd,valueSb.ToString()) );     
+                        valueSb.Clear();                                 
+                        break;                                                                                             
+                }
             }
             state=newState;
         }
@@ -73,7 +80,7 @@ namespace tokenizer
         {
             if ( (token.TokenType==TokenType.SpecialCharacter) && (token.Value=="<") )
             {
-                ChangeState(1);
+                ChangeState(1,true);
             }                     
             else
             {
@@ -93,11 +100,11 @@ namespace tokenizer
             }                                      
             else if ( (token.TokenType==TokenType.SpecialCharacter) && (token.Value=="/") )
             {
-                ChangeState(2);                
+                ChangeState(2,false);                
             }                     
             else if ( (token.TokenType==TokenType.SpecialCharacter) && (token.Value==">") )
             {                
-                ChangeState(0);
+                ChangeState(0,true);
             }         
             else
             {
@@ -113,7 +120,7 @@ namespace tokenizer
             }                                      
             else if ( (token.TokenType==TokenType.SpecialCharacter) && (token.Value==">") )
             {                
-                ChangeState(0);
+                ChangeState(0,true);
             }         
             else
             {
