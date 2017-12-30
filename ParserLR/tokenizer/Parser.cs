@@ -1,4 +1,5 @@
 using System;
+using System.Text;
 using System.Collections.Generic;
 
 
@@ -9,6 +10,7 @@ namespace tokenizer
         private Tokenizer tokenizer;
         private int state = 0;
         private List<ParsedItem> parsedItems = new List<ParsedItem>();
+        private StringBuilder valueSb = new StringBuilder();
 
         public Parser(string input)
         : this(new Tokenizer(input))
@@ -50,10 +52,15 @@ namespace tokenizer
             switch(state)
             {
                 case 0:
-                    parsedItems.Add(new ParsedItem(ParsedItemType.Text,"text") );   
+                    if (valueSb.Length>0)
+                    {
+                        parsedItems.Add(new ParsedItem(ParsedItemType.Text,valueSb.ToString()) );   
+                    }
+                    valueSb.Clear();
                     break;      
                 case 1:
-                    parsedItems.Add(new ParsedItem(ParsedItemType.HtmlTagBegin,"htmltagname",null) );                  
+                    parsedItems.Add(new ParsedItem(ParsedItemType.HtmlTagBegin,valueSb.ToString(),null) );     
+                    valueSb.Clear();                                 
                     break;                                        
             }
             state=newState;
@@ -61,26 +68,26 @@ namespace tokenizer
 
         private void Process0(Token token)
         {
-            if ((token.TokenType==TokenType.Text) || (token.TokenType==TokenType.WhiteSpace))
-            {
-                
-            }               
-            else if ( (token.TokenType==TokenType.SpecialCharacter) && (token.Value=="<") )
+            if ( (token.TokenType==TokenType.SpecialCharacter) && (token.Value=="<") )
             {
                 ChangeState(1);
-            }         
+            }                     
             else
             {
-                throw new ApplicationException($"unexpected: {token.ToString()}");
-            }
+                valueSb.Append(token.Value);
+            }               
         }
 
         private void Process1(Token token)
         {
-            if ((token.TokenType==TokenType.Text) || (token.TokenType==TokenType.WhiteSpace))
+            if (token.TokenType==TokenType.Text)
             {
-
-            }               
+                valueSb.Append(token.Value);
+            }    
+            else if (token.TokenType==TokenType.WhiteSpace)
+            {
+                // swallow whitespace
+            }                                      
             else if ( (token.TokenType==TokenType.SpecialCharacter) && (token.Value=="/") )
             {
             }                     
