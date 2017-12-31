@@ -82,11 +82,33 @@ namespace tokenizer
             state=newState;
         }
 
+        private void AddTextParsedItem()
+        {
+            if (valueSb.Length>0)
+            {
+                parsedItems.Add(new ParsedItem(ParsedItemType.Text,valueSb.ToString()) );   
+            }
+            valueSb.Clear();
+        }
+
+        private void AddHtmlTagBeginParsedItem()
+        {
+            parsedItems.Add(new ParsedItem(ParsedItemType.HtmlTagBegin,valueSb.ToString(),null) );     
+            valueSb.Clear();                                             
+        }
+
+        private void AddHtmlTagEndParsedItem()
+        {
+            parsedItems.Add(new ParsedItem(ParsedItemType.HtmlTagEnd,valueSb.ToString()) );     
+            valueSb.Clear();                                             
+        }
+        
         private void Process0(Token token)
         {
             if ( (token.TokenType==TokenType.SpecialCharacter) && (token.Value=="<") )
             {
-                ChangeState(1,true);
+                AddTextParsedItem();
+                this.state = 1;
             }                     
             else
             {
@@ -99,7 +121,7 @@ namespace tokenizer
             if (token.TokenType==TokenType.Text)
             {
                 valueSb.Append(token.Value);
-                ChangeState(2,false);
+                state=2;
             }    
             else if (token.TokenType==TokenType.WhiteSpace)
             {
@@ -119,11 +141,12 @@ namespace tokenizer
             }                                      
             else if ( (token.TokenType==TokenType.SpecialCharacter) && (token.Value=="/") )
             {
-                ChangeState(11,false);                
+                state=11;
             }                     
             else if ( (token.TokenType==TokenType.SpecialCharacter) && (token.Value==">") )
             {                
-                ChangeState(0,true);
+                AddHtmlTagBeginParsedItem();                
+                state=0;
             }         
             else
             {
@@ -139,7 +162,8 @@ namespace tokenizer
             }                                      
             else if ( (token.TokenType==TokenType.SpecialCharacter) && (token.Value==">") )
             {                
-                ChangeState(0,true);
+                AddHtmlTagEndParsedItem();                
+                state=0;
             }         
             else
             {
