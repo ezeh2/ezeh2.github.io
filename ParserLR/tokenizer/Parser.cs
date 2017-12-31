@@ -50,7 +50,7 @@ namespace tokenizer
 
             if (state!=0)
             {
-                throw new ArgumentException("expected state: 0");
+                throw new ArgumentException("","expected state: 0");
             }
             AddTextParsedItem();
 
@@ -104,7 +104,7 @@ namespace tokenizer
             }                                      
             else
             {
-                throw new ArgumentException($"unexpected: {token.ToString()}");
+                throw new ArgumentException("",$"unexpected: {token.ToString()}");
             }
         }       
 
@@ -125,7 +125,7 @@ namespace tokenizer
             }         
             else
             {
-                throw new ArgumentException($"unexpected: {token.ToString()}");
+                throw new ArgumentException("",$"unexpected: {token.ToString()}");
             }
         }          
 
@@ -142,7 +142,7 @@ namespace tokenizer
             }         
             else
             {
-                throw new ArgumentException($"unexpected: {token.ToString()}");
+                throw new ArgumentException("",$"unexpected: {token.ToString()}");
             }
         }             
         

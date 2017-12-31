@@ -10,7 +10,7 @@ namespace tokenizer
         {
             if (parsedItemType!=ParsedItemType.HtmlTagBegin)
             {
-                throw new ArgumentException("only allowed: ParsedItemType.HtmlTagBegin");
+                throw new ArgumentException("","only allowed: ParsedItemType.HtmlTagBegin");
             }
 
             this.ParsedItemType = parsedItemType;
@@ -22,7 +22,7 @@ namespace tokenizer
         {
             if (parsedItemType==ParsedItemType.HtmlTagBegin)
             {
-                throw new ArgumentException("not allowed: ParsedItemType.HtmlTagBegin");
+                throw new ArgumentException("","not allowed: ParsedItemType.HtmlTagBegin");
             }
 
             this.ParsedItemType = parsedItemType;

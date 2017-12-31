@@ -25,14 +25,14 @@ namespace tokenizer_test
         }
 
         [Theory]
-        [InlineData(" sc ss<a a>")]
-        [InlineData(" sc ss<a /x>")]
-        [InlineData(" <")]
-        public void CreateParsedItems_HtmlTagBeginSyntax_Error_Test2(string value)
+        [InlineData(" sc ss<a a>","unexpected: Token: Text, a")]
+        [InlineData(" sc ss<a /x>","unexpected: Token: Text, x")]
+        [InlineData(" <","expected state: 0")]
+        public void CreateParsedItems_HtmlTagBeginSyntax_Error_Test2(string value, string message)
         {
             Parser parser = new Parser(value);
             // throw ApplicationException with Message "Unexpected a"
-            Assert.Throws<ArgumentException>(()=> {parser.CreateParsedItems();});
+            Assert.Throws<ArgumentException>(message,()=> {parser.CreateParsedItems();});
         }        
 
         [Theory]
