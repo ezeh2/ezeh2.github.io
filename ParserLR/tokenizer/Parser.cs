@@ -41,7 +41,13 @@ namespace tokenizer
                         break;      
                     case 2:
                         Process2(token);
+                        break;      
+                    case 3:
+                        Process3(token);
                         break;                              
+                    case 4:
+                        Process4(token);
+                        break;                                                                              
                     case 11:
                         Process11(token);
                         break;                                                                  
@@ -113,7 +119,11 @@ namespace tokenizer
             if (token.TokenType==TokenType.WhiteSpace)
             {
                 // swallow whitespace
-            }                                      
+            }                  
+            else if (token.TokenType==TokenType.Text)
+            {
+                state=3;
+            }                                                                      
             else if ( (token.TokenType==TokenType.SpecialCharacter) && (token.Value=="/") )
             {
                 state=11;
@@ -127,7 +137,40 @@ namespace tokenizer
             {
                 throw new ArgumentException("",$"unexpected: {token.ToString()}");
             }
-        }          
+        }      
+
+        private void Process3(Token token)
+        {
+            if (token.TokenType==TokenType.WhiteSpace)
+            {
+                // swallow whitespace
+            }                                      
+            else if ( (token.TokenType==TokenType.SpecialCharacter) && (token.Value=="=") )
+            {
+                state=4;
+            }                     
+            else
+            {
+                throw new ArgumentException("",$"unexpected: {token.ToString()}");
+            }
+        }       
+
+
+        private void Process4(Token token)
+        {
+            if (token.TokenType==TokenType.WhiteSpace)
+            {
+                // swallow whitespace
+            }                                      
+            else if (token.TokenType==TokenType.Text)
+            {
+                state=2;
+            }                     
+            else
+            {
+                throw new ArgumentException("",$"unexpected: {token.ToString()}");
+            }
+        }                       
 
         private void Process11(Token token)
         {

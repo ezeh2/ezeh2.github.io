@@ -9,6 +9,8 @@ namespace tokenizer_test
         [Theory]
         [InlineData(" sc ss<aa>",ParsedItemType.HtmlTagBegin)]
         [InlineData(" sc ss< aa >",ParsedItemType.HtmlTagBegin)]
+        [InlineData(" sc ss<aa x=y >",ParsedItemType.HtmlTagBegin)]
+        [InlineData(" sc ss<aa x=y rr=ss>",ParsedItemType.HtmlTagBegin)]
         [InlineData(" sc ss<aa >",ParsedItemType.HtmlTagBegin)]
         [InlineData(" sc ss<aa/>",ParsedItemType.HtmlTagEnd)]
         [InlineData(" sc ss< aa/ >",ParsedItemType.HtmlTagEnd)]
@@ -25,7 +27,9 @@ namespace tokenizer_test
         }
 
         [Theory]
-        [InlineData(" sc ss<a a>","unexpected: Token: Text, a")]
+        [InlineData(" sc ss<a a>","unexpected: Token: SpecialCharacter, >")]
+        [InlineData(" sc ss<a a=>","unexpected: Token: SpecialCharacter, >")]
+        [InlineData(" sc ss<a /a=2>","unexpected: Token: Text, a")]
         [InlineData(" sc ss<a /x>","unexpected: Token: Text, x")]
         [InlineData(" <","expected state: 0")]
         public void CreateParsedItems_HtmlTagBeginSyntax_Error_Test2(string value, string message)
