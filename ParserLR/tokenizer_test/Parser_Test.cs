@@ -11,6 +11,8 @@ namespace tokenizer_test
         [InlineData(" sc ss< aa >",ParsedItemType.HtmlTagBegin,0)]
         [InlineData(" sc ss<aa x=y >",ParsedItemType.HtmlTagBegin,1)]
         [InlineData(" sc ss<aa x=y rr=ss>",ParsedItemType.HtmlTagBegin,2)]
+        // TODO: fix issue:
+        // [InlineData(" sc ss<aa x=y rr=ss> sdsssd",ParsedItemType.HtmlTagBegin,2)]
         [InlineData(" sc ss<aa >",ParsedItemType.HtmlTagBegin,0)]
         [InlineData(" sc ss<aa/>",ParsedItemType.HtmlTagEnd,0)]
         [InlineData(" sc ss< aa/ >",ParsedItemType.HtmlTagEnd,0)]
@@ -71,6 +73,7 @@ namespace tokenizer_test
         [InlineData(" sc ss< aa >",2)] 
         [InlineData(" sc ss<aa/>",2)] 
         [InlineData(" sc ss< aa / >",2)] 
+        [InlineData(" sc ss<aa x=y rr=ss> sdsssd",3)]
         public void CreateParsedItems_Count_Test(string value,int count)
         {
             Parser parser = new Parser(value);
