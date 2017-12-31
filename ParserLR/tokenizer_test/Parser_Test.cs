@@ -7,15 +7,15 @@ namespace tokenizer_test
     public class Parser_Test
     {
         [Theory]
-        [InlineData(" sc ss<aa>",ParsedItemType.HtmlTagBegin)]
-        [InlineData(" sc ss< aa >",ParsedItemType.HtmlTagBegin)]
-        [InlineData(" sc ss<aa x=y >",ParsedItemType.HtmlTagBegin)]
-        [InlineData(" sc ss<aa x=y rr=ss>",ParsedItemType.HtmlTagBegin)]
-        [InlineData(" sc ss<aa >",ParsedItemType.HtmlTagBegin)]
-        [InlineData(" sc ss<aa/>",ParsedItemType.HtmlTagEnd)]
-        [InlineData(" sc ss< aa/ >",ParsedItemType.HtmlTagEnd)]
-        [InlineData(" sc ss<aa />",ParsedItemType.HtmlTagEnd)]        
-        public void CreateParsedItems_HtmlTagBegin_Test1(string value, ParsedItemType parsedItemType)
+        [InlineData(" sc ss<aa>",ParsedItemType.HtmlTagBegin,0)]
+        [InlineData(" sc ss< aa >",ParsedItemType.HtmlTagBegin,0)]
+        [InlineData(" sc ss<aa x=y >",ParsedItemType.HtmlTagBegin,1)]
+        [InlineData(" sc ss<aa x=y rr=ss>",ParsedItemType.HtmlTagBegin,2)]
+        [InlineData(" sc ss<aa >",ParsedItemType.HtmlTagBegin,0)]
+        [InlineData(" sc ss<aa/>",ParsedItemType.HtmlTagEnd,0)]
+        [InlineData(" sc ss< aa/ >",ParsedItemType.HtmlTagEnd,0)]
+        [InlineData(" sc ss<aa />",ParsedItemType.HtmlTagEnd,0)]        
+        public void CreateParsedItems_HtmlTagBegin_Test1(string value, ParsedItemType parsedItemType, int attributeCount)
         {
             Parser parser = new Parser(value);
             var parsedItems = parser.CreateParsedItems();
@@ -23,7 +23,11 @@ namespace tokenizer_test
             Assert.Equal(ParsedItemType.Text,parsedItems[0].ParsedItemType);
             Assert.Equal(" sc ss",parsedItems[0].Value);     
             Assert.Equal(parsedItemType,parsedItems[1].ParsedItemType);
-            Assert.Equal("aa",parsedItems[1].Value);                                                       
+            Assert.Equal("aa",parsedItems[1].Value);   
+            if (parsedItemType==ParsedItemType.HtmlTagBegin)
+            {
+                Assert.Equal(attributeCount,parsedItems[1].Attributes.Count);                                                                                                           
+            }
         }
 
         [Theory]

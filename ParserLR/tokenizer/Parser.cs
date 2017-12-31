@@ -11,6 +11,8 @@ namespace tokenizer
         private int state = 0;
         private List<ParsedItem> parsedItems = new List<ParsedItem>();
         private StringBuilder valueSb = new StringBuilder();
+        private string attributeKey;
+        private Dictionary<string,string> attributes = new Dictionary<string, string>();
 
         public Parser(string input)
         : this(new Tokenizer(input))
@@ -74,7 +76,9 @@ namespace tokenizer
 
         private void AddHtmlTagBeginParsedItem()
         {
-            parsedItems.Add(new ParsedItem(ParsedItemType.HtmlTagBegin,valueSb.ToString(),null) );     
+            parsedItems.Add(new ParsedItem(ParsedItemType.HtmlTagBegin,valueSb.ToString()
+            ,new Dictionary<string, string>( this.attributes)) );     
+            this.attributes.Clear();
             valueSb.Clear();                                             
         }
 
@@ -122,6 +126,7 @@ namespace tokenizer
             }                  
             else if (token.TokenType==TokenType.Text)
             {
+                this.attributeKey = token.Value;
                 state=3;
             }                                                                      
             else if ( (token.TokenType==TokenType.SpecialCharacter) && (token.Value=="/") )
@@ -164,6 +169,7 @@ namespace tokenizer
             }                                      
             else if (token.TokenType==TokenType.Text)
             {
+                this.attributes.Add(this.attributeKey, token.Value);
                 state=2;
             }                     
             else
