@@ -48,38 +48,13 @@ namespace tokenizer
                 }
             }
 
-            ChangeState(-1,true);
+            if (state!=0)
+            {
+                throw new ArgumentException("expected state: 0");
+            }
+            AddTextParsedItem();
 
             return parsedItems;
-        }
-
-        private void ChangeState(int newState, bool createParsedItem)
-        {
-            if (createParsedItem)
-            {
-                switch(state)
-                {
-                    case 0:
-                        if (valueSb.Length>0)
-                        {
-                            parsedItems.Add(new ParsedItem(ParsedItemType.Text,valueSb.ToString()) );   
-                        }
-                        valueSb.Clear();
-                        break;      
-                    case 2:
-                        parsedItems.Add(new ParsedItem(ParsedItemType.HtmlTagBegin,valueSb.ToString(),null) );     
-                        valueSb.Clear();                                 
-                        break;           
-                    case 11:
-                        parsedItems.Add(new ParsedItem(ParsedItemType.HtmlTagEnd,valueSb.ToString()) );     
-                        valueSb.Clear();                                 
-                        break;      
-                    default:
-                        throw new ArgumentException($"ChangeState: expected case for {state}");
-                        break;                                                                                       
-                }
-            }
-            state=newState;
         }
 
         private void AddTextParsedItem()

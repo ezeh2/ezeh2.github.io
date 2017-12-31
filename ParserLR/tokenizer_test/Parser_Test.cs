@@ -27,6 +27,7 @@ namespace tokenizer_test
         [Theory]
         [InlineData(" sc ss<a a>")]
         [InlineData(" sc ss<a /x>")]
+        [InlineData(" <")]
         public void CreateParsedItems_HtmlTagBeginSyntax_Error_Test2(string value)
         {
             Parser parser = new Parser(value);
