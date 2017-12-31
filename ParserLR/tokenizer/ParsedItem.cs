@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 
@@ -7,7 +8,10 @@ namespace tokenizer
     {
         public ParsedItem(ParsedItemType parsedItemType, string value, Dictionary<string,string> attributes)
         {
-            Debug.Assert(parsedItemType==ParsedItemType.HtmlTagBegin);
+            if (parsedItemType!=ParsedItemType.HtmlTagBegin)
+            {
+                throw new ArgumentException("only allowed: ParsedItemType.HtmlTagBegin");
+            }
 
             this.ParsedItemType = parsedItemType;
             this.Value = value;
@@ -16,7 +20,10 @@ namespace tokenizer
 
         public ParsedItem(ParsedItemType parsedItemType, string value)
         {
-            Debug.Assert(parsedItemType!=ParsedItemType.HtmlTagBegin);
+            if (parsedItemType==ParsedItemType.HtmlTagBegin)
+            {
+                throw new ArgumentException("not allowed: ParsedItemType.HtmlTagBegin");
+            }
 
             this.ParsedItemType = parsedItemType;
             this.Value = value;

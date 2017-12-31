@@ -75,7 +75,7 @@ namespace tokenizer
                         valueSb.Clear();                                 
                         break;      
                     default:
-                        throw new ApplicationException($"ChangeState: expected case for {state}");
+                        throw new ArgumentException($"ChangeState: expected case for {state}");
                         break;                                                                                       
                 }
             }
@@ -129,7 +129,7 @@ namespace tokenizer
             }                                      
             else
             {
-                throw new ApplicationException($"unexpected: {token.ToString()}");
+                throw new ArgumentException($"unexpected: {token.ToString()}");
             }
         }       
 
@@ -150,7 +150,7 @@ namespace tokenizer
             }         
             else
             {
-                throw new ApplicationException($"unexpected: {token.ToString()}");
+                throw new ArgumentException($"unexpected: {token.ToString()}");
             }
         }          
 
@@ -167,7 +167,7 @@ namespace tokenizer
             }         
             else
             {
-                throw new ApplicationException($"unexpected: {token.ToString()}");
+                throw new ArgumentException($"unexpected: {token.ToString()}");
             }
         }             
         

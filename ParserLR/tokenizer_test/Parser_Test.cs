@@ -31,7 +31,7 @@ namespace tokenizer_test
         {
             Parser parser = new Parser(value);
             // throw ApplicationException with Message "Unexpected a"
-            Assert.Throws<ApplicationException>(()=> {parser.CreateParsedItems();});
+            Assert.Throws<ArgumentException>(()=> {parser.CreateParsedItems();});
         }        
 
         [Theory]
