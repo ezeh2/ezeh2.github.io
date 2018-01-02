@@ -10,10 +10,20 @@ namespace tokenizer
 
         private static string pattern =
         // https://www.mikesdotnetting.com/article/46/c-regular-expressions-cheat-sheet
+
+        // Group: index of groups must correspond with enum TokenType
+
+        // group 1: "Whitespace"
         // \s	Matches any white space including space, tab, form-feed, etc. Equivalent to "[ \f\n\r\t\v]".
-        @"(\s+)|" +                    // issue fixed: s* replaced with s+				
-        @"([" + specialCharacter + "])|" +	  
+        @"(\s+)|" +                    // issue fixed: s* replaced with s+	
+
+        // group 2: "SpecialCharacter"		
+        @"([" + specialCharacter + "])|" +	 
+
+        // group 3: "Text" = everything except whitespace and special characters
         @"([^"+specialCharacter+@"\s]+)|" +		// text without specialCharacter and without whitespace
+
+        // group 4: everything except whitespace
         @"([^\s]+)";
 
         private string input;
