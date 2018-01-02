@@ -6,22 +6,41 @@ namespace tokenizer_test
 {
     public class Parser_Test
     {
+        [Fact]
+        public void Test1()
+        {
+            Parser parser = new Parser(" sc ss<aa x=y rr=ss> sdsssd");
+            var parsedItems = parser.CreateParsedItems();
+            Assert.Equal(3,parsedItems.Count);
+
+            Assert.Equal(ParsedItemType.Text,parsedItems[0].ParsedItemType);
+            Assert.Equal(" sc ss",parsedItems[0].Value);
+
+            Assert.Equal(ParsedItemType.HtmlTagBegin,parsedItems[1].ParsedItemType);            
+            Assert.Equal("aa",parsedItems[1].Value);
+            Assert.Equal(2,parsedItems[1].Attributes.Count);
+            Assert.Equal("y",parsedItems[1].Attributes["x"]);
+            Assert.Equal("ss",parsedItems[1].Attributes["rr"]);
+
+            Assert.Equal(ParsedItemType.Text,parsedItems[2].ParsedItemType);
+            Assert.Equal(" sdsssd",parsedItems[2].Value);
+        }
+
         [Theory]
-        [InlineData(" sc ss<aa>",ParsedItemType.HtmlTagBegin,0)]
-        [InlineData(" sc ss< aa >",ParsedItemType.HtmlTagBegin,0)]
-        [InlineData(" sc ss<aa x=y >",ParsedItemType.HtmlTagBegin,1)]
-        [InlineData(" sc ss<aa x=y rr=ss>",ParsedItemType.HtmlTagBegin,2)]
-        // TODO: fix issue: 
-        // [InlineData(" sc ss<aa x=y rr=ss> sdsssd",ParsedItemType.HtmlTagBegin,2)]
-        [InlineData(" sc ss<aa >",ParsedItemType.HtmlTagBegin,0)]
-        [InlineData(" sc ss<aa/>",ParsedItemType.HtmlTagEnd,0)]
-        [InlineData(" sc ss< aa/ >",ParsedItemType.HtmlTagEnd,0)]
-        [InlineData(" sc ss<aa />",ParsedItemType.HtmlTagEnd,0)]        
-        public void CreateParsedItems_HtmlTagBegin_Test1(string value, ParsedItemType parsedItemType, int attributeCount)
+        [InlineData(" sc ss<aa>",ParsedItemType.HtmlTagBegin,2,0)]
+        [InlineData(" sc ss< aa >",ParsedItemType.HtmlTagBegin,2,0)]
+        [InlineData(" sc ss<aa x=y >",ParsedItemType.HtmlTagBegin,2,1)]
+        [InlineData(" sc ss<aa x=y rr=ss>",ParsedItemType.HtmlTagBegin,2,2)]
+        [InlineData(" sc ss<aa x=y rr=ss> sdsssd",ParsedItemType.HtmlTagBegin,3,2)]
+        [InlineData(" sc ss<aa >",ParsedItemType.HtmlTagBegin,2,0)]
+        [InlineData(" sc ss<aa/>",ParsedItemType.HtmlTagEnd,2,0)]
+        [InlineData(" sc ss< aa/ >",ParsedItemType.HtmlTagEnd,2,0)]
+        [InlineData(" sc ss<aa />",ParsedItemType.HtmlTagEnd,2,0)]        
+        public void CreateParsedItems_HtmlTagBegin_Test1(string value, ParsedItemType parsedItemType, int parsedItemCount, int attributeCount)
         {
             Parser parser = new Parser(value);
             var parsedItems = parser.CreateParsedItems();
-            Assert.Equal(2,parsedItems.Count);
+            Assert.Equal(parsedItemCount,parsedItems.Count);
             Assert.Equal(ParsedItemType.Text,parsedItems[0].ParsedItemType);
             Assert.Equal(" sc ss",parsedItems[0].Value);     
             Assert.Equal(parsedItemType,parsedItems[1].ParsedItemType);
