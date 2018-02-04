@@ -4,5 +4,8 @@
 *.suo
 *.exe
 *.pdb
+*.class
+*.interp
+*.tokens
 */bin/Debug/*
 */obj/Debug/*
