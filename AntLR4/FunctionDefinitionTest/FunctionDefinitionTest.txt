@@ -1,0 +1,8 @@
+bla1(  bool bla2
+       ,int x2,  string x3
+          ,bool l)
+{
+   a(b,x2);
+   a1(b2);
+   x(e,s1,s2);
+}
