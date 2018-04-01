@@ -7,6 +7,9 @@
 mkdir webpacktest2
 cd webpacktest2
 
+mkdir SimpleButtonWebAppWithJsBundle
+cd SimpleButtonWebAppWithJsBundle
+
 // creates package.json:
 npm init -y   
 
@@ -29,6 +32,9 @@ mkdir src
 
 // creates webpack.config.js:
 .\node_modules\.bin\webpack init
+
+// in webpack.config.js ts-loader konfigurieren:
+* mode: 'development'    (https://webpack.js.org/concepts/mode/)
 
 // in webpack.config.js: 
 * UglifyJSPlugin auskommentieren
