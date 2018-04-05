@@ -15,20 +15,24 @@
 
 // in webpack.config.js ts-loader konfigurieren:
 
-1 .rules: [
-			{
-			  test: /\.tsx?$/,
-			  use: 'ts-loader',
-			  exclude: /node_modules/
-			}
-		  ]
+1 .rules: 
+
+    [
+      {
+        test: /\.tsx?$/,
+        use: 'ts-loader',
+        exclude: /node_modules/
+       }
+    ]
 
 2. 
-	resolve: {
-		extensions: [ '.tsx', '.ts', '.js' ]
-	},
+
+    resolve: {
+	extensions: [ '.tsx', '.ts', '.js' ]
+    },
 
 3.
+
     mode: 'development'
 
 // erzeugt bundle-file dist\bundle.js und bundle.js.map
