@@ -14,6 +14,7 @@
     .\node_modules\.bin\tsc --init
 
 // in webpack.config.js ts-loader konfigurieren:
+
 1 .rules: [
 			{
 			  test: /\.tsx?$/,
@@ -21,13 +22,16 @@
 			  exclude: /node_modules/
 			}
 		  ]
+
 2. 
 	resolve: {
 		extensions: [ '.tsx', '.ts', '.js' ]
 	},
+
 3.
     mode: 'development'
 
 // erzeugt bundle-file dist\bundle.js und bundle.js.map
+
     .\node_modules\.bin\webpack
 
