@@ -11,7 +11,8 @@
 * @types/node
 * @types/sqlite3
 
-// creates tsconfig.json:
+### creating tsconfig.json:
+
     .\node_modules\.bin\tsc --init
 
 ### in webpack.config.js ts-loader konfigurieren
@@ -36,7 +37,7 @@
 
     mode: 'development'
 
-// erzeugt bundle-file dist\bundle.js und bundle.js.map
+### bundle-file dist\bundle.js und bundle.js.map erzeugen
 
     .\node_modules\.bin\webpack
 
