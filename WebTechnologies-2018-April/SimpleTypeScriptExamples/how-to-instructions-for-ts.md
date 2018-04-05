@@ -1,9 +1,10 @@
 
-// zuerst: SimpleButtonWebAppWithJsBundle\how-to-instructions.txt
-
+> 
+>  zuerst lesen: SimpleButtonWebAppWithJsBundle\how-to-instructions.txt
+>  
     npm install --save-dev typescript ts-loader
 
-// optional: folgende ts-types installieren
+### optional: folgende ts-types installieren
 * @types/events
 * @types/fs-extra
 * @types/jquery
@@ -13,7 +14,7 @@
 // creates tsconfig.json:
     .\node_modules\.bin\tsc --init
 
-// in webpack.config.js ts-loader konfigurieren:
+### in webpack.config.js ts-loader konfigurieren
 
 1 .rules: 
 
