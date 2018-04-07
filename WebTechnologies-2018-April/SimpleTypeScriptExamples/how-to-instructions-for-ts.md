@@ -19,6 +19,7 @@
 
 1 .rules: 
 
+```js
     [
       {
         test: /\.tsx?$/,
@@ -36,8 +37,10 @@
 3.
 
     mode: 'development'
+```
 
 ### bundle-file dist\bundle.js und bundle.js.map erzeugen
 
     .\node_modules\.bin\webpack
+
 
