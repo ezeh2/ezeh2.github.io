@@ -32,7 +32,7 @@ https://guides.github.com/pdfs/markdown-cheatsheet-online.pdf
 > bla
 
 ### code
-```
+```js
  foreach(int i=0;i<10;i++) {
  
  }
