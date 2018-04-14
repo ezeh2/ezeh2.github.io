@@ -15,10 +15,20 @@ https://stackedit.io/app#
 
 https://dillinger.io/  
 
+### dauxio
+Features:
+* generates documentation from markdown
+* TOC
+* search
 https://dauxio.github.io/  
 https://github.com/dauxio/daux.io
 
-
+### Slackedit
+https://stackedit.io/
+Features:
+* In-browser Markdown editor
+* Math-expression with [Katex](https://khan.github.io/KaTeX/)
+* UML
 ---
 
 ## Markdown Examples
