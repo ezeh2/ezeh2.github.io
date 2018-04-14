@@ -51,20 +51,8 @@ https://guides.github.com/pdfs/markdown-cheatsheet-online.pdf
 ```
 
 ### table
-+---------+---------+
-| Header  | Header  |
-| Column1 | Column2 |
-+=========+=========+
-| Back    |   fvf   |
-| to      |   rffr  |
-| one     |    fr   |
-| column  |         | 
-+---------+---------+
-| Back    |   fvf   |
-| to      |   rffr  |
-| one     |    fr   |
-| column  |         | 
 
+This is a test.
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTAyMTE0NTY4Ml19
+eyJoaXN0b3J5IjpbLTIxMTE3MjU3N119
 -->
