@@ -59,6 +59,11 @@ und noch ein satz
 | Column 1 | Column 2 |
 |:--------:| -------------:|
 | centered | right-aligned |
+
+$$
+\Delta(z) = \int_0^\infty t^{z-1}e^{-t}dt\,.
+f(n)=(2n+1)*2
+$$
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTUzNDM1NzgxNSwtMTUyOTUyMjcyOF19
+eyJoaXN0b3J5IjpbNDM0OTU5Nzk2LC0xNTI5NTIyNzI4XX0=
 -->
