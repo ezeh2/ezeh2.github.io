@@ -65,9 +65,9 @@ $$
 $$
 
 $$
-al(n)=(2n^{1+1}+1)*2
+A(n)=(2n^{1+1}+1)*2
 $$
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTExODg3NzA3OCwyNzIzNTQ3NywtMTUyOT
-UyMjcyOF19
+eyJoaXN0b3J5IjpbMTk4ODY5MjU2MiwxMTE4ODc3MDc4LDI3Mj
+M1NDc3LC0xNTI5NTIyNzI4XX0=
 -->
