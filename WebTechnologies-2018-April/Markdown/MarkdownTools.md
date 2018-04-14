@@ -55,7 +55,10 @@ https://guides.github.com/pdfs/markdown-cheatsheet-online.pdf
 This is a test.
 und noch ein satz
 123
+
+| Column 1 | Column 2 |
+|:--------:| -------------:|
+| centered | right-aligned |
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4NjgxMDAzMjQsLTE1Mjk1MjI3MjhdfQ
-==
+eyJoaXN0b3J5IjpbLTUzNDM1NzgxNSwtMTUyOTUyMjcyOF19
 -->
