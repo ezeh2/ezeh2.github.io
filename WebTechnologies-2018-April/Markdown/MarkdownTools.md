@@ -65,8 +65,9 @@ $$
 $$
 
 $$
-alpha(n)=(2n^{1+1}+1)*2
+al(n)=(2n^{1+1}+1)*2
 $$
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjcyMzU0NzcsLTE1Mjk1MjI3MjhdfQ==
+eyJoaXN0b3J5IjpbMTExODg3NzA3OCwyNzIzNTQ3NywtMTUyOT
+UyMjcyOF19
 -->
