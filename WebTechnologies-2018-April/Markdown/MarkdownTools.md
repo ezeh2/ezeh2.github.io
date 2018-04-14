@@ -62,8 +62,11 @@ und noch ein satz
 
 $$
 \Delta(z) = \int_0^\infty t^{z-1}e^{-t}dt\,.
-f(n)=(2n+1)*2
+$$
+
+$$
+alpha(n)=(2n^{1+1}+1)*2
 $$
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNDM0OTU5Nzk2LC0xNTI5NTIyNzI4XX0=
+eyJoaXN0b3J5IjpbMjcyMzU0NzcsLTE1Mjk1MjI3MjhdfQ==
 -->
